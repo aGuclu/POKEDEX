@@ -143,7 +143,7 @@ function getFlavorText(value) {
           var descriptionH4 = document.createElement('h4');
           descriptionH4.id = 'description';
           descriptionDiv.appendChild(descriptionH4);
-          var speed = 10;
+          var speed = 5;
           function typeDescription() {
             if (t2 < descriptionTxt.length) {
               document.getElementById('description').innerHTML += descriptionTxt.charAt(t2);
