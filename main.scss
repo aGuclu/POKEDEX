@@ -35,6 +35,22 @@
   min-height: 100px;
 }
 
+#iconContainer {
+  width: 80px;
+  height: 80px;
+  padding: auto;
+}
+
+#icon {
+  background-image: url("images/pokeball.png");
+  background-position: center;
+  background-size: 100%;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  margin-top: 5%;
+}
+
 #windowDiv {
   @extend %outer-edge;
   @extend %windows-grey;
@@ -43,6 +59,16 @@
   min-width: 60%;
   max-width: 100%;
   box-shadow: 5px 5px 5px 1px grey;
+}
+
+#icon {
+  background-image: url("images/pokeball.png");
+  background-position: center;
+  background-size: 100%;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  margin-top: 5%;
 }
 
 #windowDivTitleBar {
@@ -123,6 +149,13 @@ li {
   padding-right: 2px
 }
 
+h1 {
+  margin-top: 5%;
+  font-size: 11px;
+  text-align: center;
+  color: #333;
+}
+
 h2 {
   font-size: 20px;
   text-transform: uppercase;
@@ -180,4 +213,13 @@ h3, h4 {
 
 .no-padding {
   @extend %no-padding;
+}
+
+.selected {
+  background-color: #0d0d73;
+  color: whitesmoke;
+}
+
+.hidden {
+  display: none;
 }

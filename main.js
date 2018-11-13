@@ -8,6 +8,23 @@ var type1 = document.getElementById('typeDiv');
 var abilities = document.getElementById('abilitiesDiv');
 var description = document.getElementById('descriptionDiv');
 
+document.getElementById('iconContainer').addEventListener('click', select);
+document.getElementById('iconContainer').addEventListener('dblclick', open);
+document.getElementById('x').addEventListener('click', close);
+
+function select() {
+  document.getElementById('iconTxt').classList.add('selected');
+}
+
+function open() {
+  document.getElementById('windowDiv').classList.remove('hidden');
+  document.getElementById('iconTxt').classList.remove('selected');
+}
+
+function close() {
+  document.getElementById('windowDiv').classList.add('hidden');
+}
+
 class Pokemon {
   constructor(name, id, hp, def, atk, spd, types, abilities) {
     this.name = name;
