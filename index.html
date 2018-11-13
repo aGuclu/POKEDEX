@@ -7,7 +7,6 @@
 <title>POKEDEX</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="main.css">
-<script src="https://unpkg.com/typewriter-effect/dist/core.js"></script>
 </head>
 <body>
   <div class="container">
@@ -31,49 +30,40 @@
         <div class="col-xs-12 content innerEdge no-padding screenEffect">
           <div class="col-xs-12 white-border">
             <div class="row no-gutters">
-              <div class="col-xs-9 col-sm-10 fixed100 white-border-right">
-                <h2 id="name">NAME:</h2>
-                <h3 id="IdNo">ID NO:</h3>
+              <div id="nameDiv" class="col-xs-9 col-sm-10 fixed100 white-border-right">
+                <form action="javascript: getPokemon(this.IdNo.value)">ID NO: <input id="IdNo" type="number" class="screenEffect" value="" min="1" max="151" maxlength="3"></form>
+                <h2 id="name">ENTER ID</h2>
               </div>
-              <div id="sprite" class="col-xs-3 col-sm-2 fixed100">
+              <div id="spriteDiv" class="col-xs-3 col-sm-2 fixed100">
               </div>
             </div>
           </div>
           <div class="col-xs-12">
             <div class="row no-gutters">
-              <div class="col-xs-4">
-                <h3 id="hp">HP :</h3>
-                <h3 id="def">DEF:</h3>
+              <div id="statsDiv1" class="col-xs-4">
+                <h3 id="hp"></h3>
+                <h3 id="def"></h3>
               </div>
-              <div class="col-xs-4">
-                <h3 id="atk">ATK:</h3>
-                <h3 id="spd">SPD:</h3>
+              <div id="statsDiv2"class="col-xs-5">
+                <h3 id="atk"></h3>
+                <h3 id="spd"></h3>
               </div>
-              <div class="col-xs-4">
-                <h3 id="type1">TYPE1:</h3>
-                <h3 id="type2">TYPE2:</h3>
+              <div id="typeDiv" class="col-xs-3">
+                <h3 id="type"></h3>
               </div>
             </div>
           </div>
-          <div class="col-xs-12">
-            <div class="">
-              <h4 id="description"></h4>
-            </div>
+          <div id="abilitiesDiv" class="col-xs-12">
+            <h4 id="abilities"></h4>
           </div>
-          <div class="col-xs-12">
-            <div class="">
-              <h4 id="ability1">ABILITY-1:</h4>
-                <p id="ability1Description"></p>
-                <br>
-              <h4 id="ability2">ABILITY-2:</h4>
-                <p id="ability2Description"></p>
-            </div>
+          <div id="descriptionDiv" class="col-xs-12">
+            <h4 id="description"></h4>
           </div>
         </div>
         <div class="col-xs-12 no-padding">
           <div class="row no-gutters">
             <div class="col-xs-12">
-              <div class="col-xs-3 innerEdge height20 padding2"><p class="footerText">3 Object(s)</p></div>
+              <div class="col-xs-3 innerEdge height20 padding2"><p class="footerText">151 Object(s)</p></div>
               <div class="col-xs-9 innerEdge height20"></div>
             </div>
           </div>

@@ -1,29 +1,154 @@
 const POKEMON = [];
 
+var idNo = document.getElementById('IdNo');
+var img = document.getElementById('spriteDiv');
+var stats1 = document.getElementById('statsDiv1');
+var stats2 = document.getElementById('statsDiv2');
+var type1 = document.getElementById('typeDiv');
+var abilities = document.getElementById('abilitiesDiv');
+var description = document.getElementById('descriptionDiv');
+
 class Pokemon {
-  constructor(name, hp, defense, attack, speed, type1, type2) {
+  constructor(name, id,) {
     this.name = name;
-    this.hp = hp;
-    this.defense = defense;
-    this.attack = attack;
-    this.speed = speed;
-    this.type1 = type1;
-    this.type2 = type2;
+    this.id = id;
+    POKEMON.push(this);
   }
 }
 
-function getPokemon() {
-  var xhttp = new XMLHttpRequest()
+class TrainerX {
+
+}
+
+function getPokemon(value) {
+  var xhttp = new XMLHttpRequest();
+  console.log(value);
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200){
       var data = JSON.parse(this.responseText);
-      let pokemon = new Pokemon(data.name, data.stats[5].base_stat, data.stats[3].base_stat, data.stats[4].base_stat, data.stats[0].base_stat, data.types[0].name, data.types[1].name);
+      var pokemon = new Pokemon(
+                                data['name'],
+                                data['id'],
+                               );
       console.log(data);
-      POKEMON.push(pokemon);
+      idNo.value = data['id'];
+      clearScreen()
+
+      var hpH3 = document.createElement('h3');
+      hpH3.id = 'hp';
+      var defH3 = document.createElement('h3');
+      defH3.id = 'def';
+      var hpTxt = document.createTextNode('HP :' + data['stats'][5]['base_stat']);
+      var defTxt = document.createTextNode('DEF:' + data['stats'][3]['base_stat']);
+      stats1.appendChild(hpH3);
+      stats1.appendChild(defH3);
+      hpH3.appendChild(hpTxt);
+      defH3.appendChild(defTxt);
+
+      var atkH3 = document.createElement('h3');
+      atkH3.id = 'atk';
+      var spdH3 = document.createElement('h3');
+      spdH3.id = 'spd';
+      var atkTxt = document.createTextNode('ATK:' + data['stats'][4]['base_stat']);
+      var spdTxt = document.createTextNode('SPD:' + data['stats'][0]['base_stat']);
+      stats2.appendChild(atkH3);
+      stats2.appendChild(spdH3);
+      atkH3.appendChild(atkTxt);
+      spdH3.appendChild(spdTxt);
+
+      var typeH3 = document.createElement('h3');
+      typeH3.id = 'type';
+      type1.appendChild(typeH3);
+      var i = 0
+      var typelength = data['types'].length;
+      var typeTxt = '';
+      for (; i < typelength; ) {
+        typeTxt += 'TYPE' + [i + 1] + ': ' + data['types'][i]['type']['name'] + '<br>';
+        i++;
+      }
+      typeH3.innerHTML = typeTxt;
+
+      var abilitiesH4 = document.createElement('h4');
+      abilitiesH4.id = 'abilities';
+      abilities.appendChild(abilitiesH4);
+      var i = 0
+      var abilitylength = data['abilities'].length;
+      var abilitiesTxt = '';
+      for (; i < abilitylength; ) {
+        abilitiesTxt += 'ABILITY' + [i + 1] + ': ' + data['abilities'][i]['ability']['name'] + '<br>';
+        i++;
+      }
+      abilitiesH4.innerHTML = abilitiesTxt;
+
+      var nameH2 = document.createElement('h2');
+      nameH2.id = 'name';
+      nameDiv.appendChild(nameH2);
+      var nameTxt = data['name'];
+      var t1 = 0
+      var speed = 50;
+      function typeName() {
+        if (t1 < nameTxt.length) {
+          document.getElementById('name').innerHTML += nameTxt.charAt(t1);
+          t1++;
+          setTimeout(typeName, speed);
+        }
+      }
+      img.style.backgroundImage = `url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${value}.png')`;
+      getFlavorText(value);
+      typeName();
     }
   };
-  xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/1/", true);
+  xhttp.open("GET", `https://pokeapi.co/api/v2/pokemon/${value}/`, true);
   xhttp.send();
+}
+
+function getFlavorText(value) {
+  var xhttp2 = new XMLHttpRequest();
+  xhttp2.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      var data2 = JSON.parse(this.responseText);
+      for (prop in data2['flavor_text_entries']) {
+        if (data2['flavor_text_entries'][prop]['language']['name'] == 'en'){
+          var t2 = 0;
+          let descriptionTxt = data2['flavor_text_entries'][prop]['flavor_text'];
+          var descriptionH4 = document.createElement('h4');
+          descriptionH4.id = 'description';
+          descriptionDiv.appendChild(descriptionH4);
+          var speed = 10;
+          function typeDescription() {
+            if (t2 < descriptionTxt.length) {
+              document.getElementById('description').innerHTML += descriptionTxt.charAt(t2);
+              t2++;
+              setTimeout(typeDescription, speed);
+            }
+          }
+          typeDescription();
+          return;
+        }
+      }
+    }
+  };
+  xhttp2.open("GET", `https://pokeapi.co/api/v2/pokemon-species/${value}/`, true);
+  xhttp2.send();
+}
+
+function clearScreen() {
+    let name = document.getElementById('name');
+    let hp = document.getElementById('hp');
+    let def = document.getElementById('def');
+    let atk = document.getElementById('atk');
+    let spd = document.getElementById('spd');
+    let type = document.getElementById('type');
+    let abilities = document.getElementById('abilities');
+    let description = document.getElementById('description');
+    name.remove();
+    hp.remove();
+    def.remove();
+    atk.remove();
+    spd.remove();
+    type.remove();
+    abilities.remove();
+    description.remove();
 }
 
 dragElement(document.getElementById("windowDiv"));
