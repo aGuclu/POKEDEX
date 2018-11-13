@@ -40,7 +40,9 @@ class Pokemon {
 }
 
 class TrainerX {
-}
+  constructor(name) {
+    this.name = name;
+};
 
 function getPokemon(value) {
   var xhttp = new XMLHttpRequest();
@@ -189,7 +191,6 @@ function dragElement(elmnt) {
   } else {
     elmnt.onmousedown = dragMouseDown;
   }
-
   function dragMouseDown(e) {
     e = e || window.event;
     e.preventDefault();
@@ -198,7 +199,6 @@ function dragElement(elmnt) {
     document.onmouseup = closeDragElement;
     document.onmousemove = elementDrag;
   }
-
   function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
@@ -209,7 +209,6 @@ function dragElement(elmnt) {
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
   }
-
   function closeDragElement() {
     document.onmouseup = null;
     document.onmousemove = null;
