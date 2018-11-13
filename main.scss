@@ -54,6 +54,7 @@
 
 #nameDiv {
   @extend %height100;
+  padding-top: 2px;
 }
 
 #spriteDiv {
@@ -78,6 +79,11 @@
 
 body {
   background-color: darkgrey;
+}
+
+input {
+  margin-top: 2px;
+  width: 50px;
 }
 
 button {

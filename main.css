@@ -49,6 +49,10 @@ button.x, button.maximize, button.minimize, #windowDiv {
   padding: 2px;
 }
 
+#nameDiv {
+  padding-top: 2px;
+}
+
 #spriteDiv {
   background-position: center;
   -webkit-filter: grayscale(1) invert(1);
@@ -59,6 +63,11 @@ button.x, button.maximize, button.minimize, #windowDiv {
 
 body {
   background-color: darkgrey;
+}
+
+input {
+  margin-top: 2px;
+  width: 50px;
 }
 
 button {
