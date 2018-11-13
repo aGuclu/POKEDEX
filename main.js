@@ -39,10 +39,10 @@ class Pokemon {
   }
 }
 
-class TrainerX {
-  constructor(name) {
-    this.name = name;
-};
+// class TrainerX {
+//   constructor(name) {
+//     this.name = name;
+// };
 
 function getPokemon(value) {
   var xhttp = new XMLHttpRequest();
