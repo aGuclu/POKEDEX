@@ -11,30 +11,32 @@
 <body>
   <div class="container">
     <div class="row no-gutters">
-      <div id="windowDiv" class="col-xs-12 col-sm-7 col-md-5 flatGrey outerEdge padding2">
+      <div id="windowDiv" class="col-xs-12 col-sm-7 col-md-5">
         <div class="col-xs-12 no-padding">
-          <div id="windowDivTitleBar" class="activeTitleBar padding2">POKED.EXE
-            <button class="minimize outerEdge flatGrey">&#9866;</button>
-            <button class="maximize outerEdge flatGrey">&#9744;</button>
-            <button class="x outerEdge flatGrey">X</button>
+          <div id="windowDivTitleBar" class="activeTitleBar">POKED.EXE
+            <button class="minimize">&#9866;</button>
+            <button class="maximize">&#9744;</button>
+            <button class="x">X</button>
           </div>
         </div>
         <div class="col-xs-12 no-padding">
-          <ul class="toolbar padding2">
+          <ul class="toolbar">
             <li><u>F</u>ile</li>
             <li><u>E</u>dit</li>
             <li><u>V</u>iew</li>
             <li><u>H</u>elp</li>
           </ul>
         </div>
-        <div class="col-xs-12 content innerEdge no-padding screenEffect">
+        <div class="col-xs-12 content screenEffect">
           <div class="col-xs-12 white-border">
             <div class="row no-gutters">
-              <div id="nameDiv" class="col-xs-9 col-sm-10 fixed100 white-border-right">
-                <form action="javascript: getPokemon(this.IdNo.value)">ID NO: <input id="IdNo" type="number" class="screenEffect" value="" min="1" max="151" maxlength="3"></form>
+              <div id="nameDiv" class="col-xs-9 col-sm-10 white-border-right">
+                <form action="javascript: getPokemon(this.IdNo.value)">ID NO:
+                  <input id="IdNo" type="number" class="screenEffect" value="" min="1" max="151" maxlength="3">
+                </form>
                 <h2 id="name">ENTER ID</h2>
               </div>
-              <div id="spriteDiv" class="col-xs-3 col-sm-2 fixed100">
+              <div id="spriteDiv" class="col-xs-3 col-sm-2">
               </div>
             </div>
           </div>
@@ -63,8 +65,10 @@
         <div class="col-xs-12 no-padding">
           <div class="row no-gutters">
             <div class="col-xs-12">
-              <div class="col-xs-3 innerEdge height20 padding2"><p class="footerText">151 Object(s)</p></div>
-              <div class="col-xs-9 innerEdge height20"></div>
+              <div id="footer1" class="col-xs-3">
+                <p class="footerText">151 Object(s)</p>
+              </div>
+              <div id="footer2" class="col-xs-9"></div>
             </div>
           </div>
         </div>

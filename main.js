@@ -9,15 +9,20 @@ var abilities = document.getElementById('abilitiesDiv');
 var description = document.getElementById('descriptionDiv');
 
 class Pokemon {
-  constructor(name, id,) {
+  constructor(name, id, hp, def, atk, spd, types, abilities) {
     this.name = name;
     this.id = id;
+    this.hp = hp;
+    this.def = def;
+    this.atk = atk;
+    this.spd = spd;
+    this.types = types;
+    this.abilities = abilities;
     POKEMON.push(this);
   }
 }
 
 class TrainerX {
-
 }
 
 function getPokemon(value) {
@@ -29,28 +34,35 @@ function getPokemon(value) {
       var pokemon = new Pokemon(
                                 data['name'],
                                 data['id'],
+                                data['stats'][5]['base_stat'],
+                                data['stats'][3]['base_stat'],
+                                data['stats'][4]['base_stat'],
+                                data['stats'][0]['base_stat'],
+                                data['types'],
+                                data['abilities']
                                );
       console.log(data);
-      idNo.value = data['id'];
+      idNo.value = pokemon.id;
       clearScreen()
 
       var hpH3 = document.createElement('h3');
-      hpH3.id = 'hp';
       var defH3 = document.createElement('h3');
+      var atkH3 = document.createElement('h3');
+      var spdH3 = document.createElement('h3');
+      var hpTxt = document.createTextNode('HP :' + pokemon.hp);
+      var defTxt = document.createTextNode('DEF:' + pokemon.def);
+      var atkTxt = document.createTextNode('ATK:' + pokemon.atk);
+      var spdTxt = document.createTextNode('SPD:' + pokemon.spd);
+
+      hpH3.id = 'hp';
       defH3.id = 'def';
-      var hpTxt = document.createTextNode('HP :' + data['stats'][5]['base_stat']);
-      var defTxt = document.createTextNode('DEF:' + data['stats'][3]['base_stat']);
+      atkH3.id = 'atk';
+      spdH3.id = 'spd';
+
       stats1.appendChild(hpH3);
       stats1.appendChild(defH3);
       hpH3.appendChild(hpTxt);
       defH3.appendChild(defTxt);
-
-      var atkH3 = document.createElement('h3');
-      atkH3.id = 'atk';
-      var spdH3 = document.createElement('h3');
-      spdH3.id = 'spd';
-      var atkTxt = document.createTextNode('ATK:' + data['stats'][4]['base_stat']);
-      var spdTxt = document.createTextNode('SPD:' + data['stats'][0]['base_stat']);
       stats2.appendChild(atkH3);
       stats2.appendChild(spdH3);
       atkH3.appendChild(atkTxt);
@@ -60,10 +72,10 @@ function getPokemon(value) {
       typeH3.id = 'type';
       type1.appendChild(typeH3);
       var i = 0
-      var typelength = data['types'].length;
+      var typelength = pokemon.types.length;
       var typeTxt = '';
       for (; i < typelength; ) {
-        typeTxt += 'TYPE' + [i + 1] + ': ' + data['types'][i]['type']['name'] + '<br>';
+        typeTxt += 'TYPE' + [i + 1] + ': ' + pokemon.types[i]['type']['name'] + '<br>';
         i++;
       }
       typeH3.innerHTML = typeTxt;
@@ -72,10 +84,10 @@ function getPokemon(value) {
       abilitiesH4.id = 'abilities';
       abilities.appendChild(abilitiesH4);
       var i = 0
-      var abilitylength = data['abilities'].length;
+      var abilitylength = pokemon.abilities.length;
       var abilitiesTxt = '';
       for (; i < abilitylength; ) {
-        abilitiesTxt += 'ABILITY' + [i + 1] + ': ' + data['abilities'][i]['ability']['name'] + '<br>';
+        abilitiesTxt += 'ABILITY' + [i + 1] + ': ' + pokemon.abilities[i]['ability']['name'] + '<br>';
         i++;
       }
       abilitiesH4.innerHTML = abilitiesTxt;

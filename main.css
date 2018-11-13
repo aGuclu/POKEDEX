@@ -1,8 +1,4 @@
-body {
-  background-color: darkgrey;
-}
-
-.innerEdge {
+.content, #footer2, #footer1 {
   border: 2px solid;
   border-top-color: #535353;
   border-left-color: #535353;
@@ -10,7 +6,7 @@ body {
   border-right-color: #dbdbdb;
 }
 
-.outerEdge {
+button.x, button.maximize, button.minimize, #windowDiv {
   border: 2px solid;
   border-bottom-color: #535353;
   border-right-color: #535353;
@@ -18,60 +14,25 @@ body {
   border-top-color: #dbdbdb;
 }
 
-.no-padding {
+.no-padding, .content {
   padding: 0 !important;
   margin: 0 !important;
 }
 
-.padding2 {
+.toolbar, .activeTitleBar, #footer1, #windowDiv {
   padding: 0px 2px 0px 2px;
 }
 
-.height20 {
-  height: 20px;
-}
-
-.flatGrey {
+button.x, button.maximize, button.minimize, #windowDiv {
   background-color: #bfbfbf;
 }
 
-.activeTitleBar {
-  background-color: #0d0d73;
-  font-size: 13px;
-  font-weight: bold;
-  color: whitesmoke;
-}
-
-.toolbar {
-  width: 100%;
+#footer2, #footer1 {
   height: 20px;
-  color: grey;
-  text-shadow: 1px 1px #dbdbdb;
-  margin: 2px 0px;
 }
 
-.white-border {
-  border: 2px dashed grey;
-}
-
-.white-border-right {
-  border-right: 2px dashed grey;
-}
-
-.fixed100 {
+#spriteDiv, #nameDiv {
   min-height: 100px;
-}
-
-.footerText {
-  font-size: 13px;
-}
-.content {
-  font-size: 10px;
-  font-smooth: never;
-  -webkit-font-smoothing: none;
-  font-family: 'pokemon-font', monospace;
-  color: whitesmoke;
-  background-color: #262626;
 }
 
 #windowDiv {
@@ -94,6 +55,10 @@ body {
   filter: grayscale(1) invert(1);
   pointer-events: none;
   background-size: 100%;
+}
+
+body {
+  background-color: darkgrey;
 }
 
 button {
@@ -124,7 +89,7 @@ ul {
 
 li {
   display: inline-block;
-  padding-right: 2px
+  padding-right: 2px;
 }
 
 h2 {
@@ -137,19 +102,45 @@ h3, h4 {
   line-height: 1.5;
 }
 
-input {
-  display: inline-block;
-  width: 50px;
-  background-color: #262626;
-  border: 2px solid grey;
-  margin-top: 2px;
-}
-
-form {
-  margin-top: 2px;
-}
-
 .screenEffect {
   background: linear-gradient(#121010 50%, #262626 50%), linear-gradient(90deg, #ff0000, #00ff00, #0000ff);
   background-size: 100% 2px, 3px 100%;
 }
+
+.activeTitleBar {
+  background-color: #0d0d73;
+  font-size: 13px;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+.toolbar {
+  width: 100%;
+  height: 20px;
+  color: grey;
+  text-shadow: 1px 1px #dbdbdb;
+  margin: 2px 0px;
+}
+
+.white-border {
+  border: 2px dashed grey;
+}
+
+.white-border-right {
+  border-right: 2px dashed grey;
+}
+
+.footerText {
+  font-size: 13px;
+}
+
+.content {
+  font-size: 10px;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  font-family: "pokemon-font", monospace;
+  color: whitesmoke;
+  background-color: #262626;
+}
+
+/*# sourceMappingURL=main.css.map */

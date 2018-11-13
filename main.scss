@@ -1,8 +1,4 @@
-body {
-  background-color: darkgrey;
-}
-
-.innerEdge {
+%inner-edge {
   border: 2px solid;
   border-top-color: #535353;
   border-left-color: #535353;
@@ -10,7 +6,7 @@ body {
   border-right-color: #dbdbdb;
 }
 
-.outerEdge {
+%outer-edge {
   border: 2px solid;
   border-bottom-color: #535353;
   border-right-color: #535353;
@@ -18,63 +14,31 @@ body {
   border-top-color: #dbdbdb;
 }
 
-.no-padding {
+%no-padding {
   padding: 0 !important;
   margin: 0 !important;
 }
 
-.padding2 {
+%padding2 {
   padding: 0px 2px 0px 2px;
 }
 
-.height20 {
-  height: 20px;
-}
-
-.flatGrey {
+%windows-grey {
   background-color: #bfbfbf;
 }
 
-.activeTitleBar {
-  background-color: #0d0d73;
-  font-size: 13px;
-  font-weight: bold;
-  color: whitesmoke;
-}
-
-.toolbar {
-  width: 100%;
+%height20 {
   height: 20px;
-  color: grey;
-  text-shadow: 1px 1px #dbdbdb;
-  margin: 2px 0px;
 }
 
-.white-border {
-  border: 2px dashed grey;
-}
-
-.white-border-right {
-  border-right: 2px dashed grey;
-}
-
-.fixed100 {
+%height100 {
   min-height: 100px;
 }
 
-.footerText {
-  font-size: 13px;
-}
-.content {
-  font-size: 10px;
-  font-smooth: never;
-  -webkit-font-smoothing: none;
-  font-family: 'pokemon-font', monospace;
-  color: whitesmoke;
-  background-color: #262626;
-}
-
 #windowDiv {
+  @extend %outer-edge;
+  @extend %windows-grey;
+  @extend %padding2;
   position: absolute;
   min-width: 60%;
   max-width: 100%;
@@ -88,13 +52,32 @@ body {
   padding: 2px;
 }
 
-#sprite {
-  background-image: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png");
+#nameDiv {
+  @extend %height100;
+}
+
+#spriteDiv {
+  @extend %height100;
   background-position: center;
   -webkit-filter: grayscale(1) invert(1);
   filter: grayscale(1) invert(1);
   pointer-events: none;
-  background-size: 180%;
+  background-size: 100%;
+}
+
+#footer1 {
+  @extend %inner-edge;
+  @extend %height20;
+  @extend %padding2;
+}
+
+#footer2 {
+  @extend %inner-edge;
+  @extend %height20;
+}
+
+body {
+  background-color: darkgrey;
 }
 
 button {
@@ -107,14 +90,20 @@ button {
 }
 
 button.minimize {
+  @extend %outer-edge;
+  @extend %windows-grey;
   right: 36px;
 }
 
 button.maximize {
+  @extend %outer-edge;
+  @extend %windows-grey;
   right: 19px;
 }
 
 button.x {
+  @extend %outer-edge;
+  @extend %windows-grey;
   right: 2px;
 }
 
@@ -130,6 +119,7 @@ li {
 
 h2 {
   font-size: 20px;
+  text-transform: uppercase;
 }
 
 h3, h4 {
@@ -138,8 +128,50 @@ h3, h4 {
 }
 
 .screenEffect {
-  display: block;
   background: linear-gradient(#121010 50%, #262626 50%), linear-gradient(90deg, #ff0000, #00ff00, #0000ff);
   background-size: 100% 2px, 3px 100%;
-  pointer-events: none;
+}
+
+.activeTitleBar {
+  @extend %padding2;
+  background-color: #0d0d73;
+  font-size: 13px;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+.toolbar {
+  @extend %padding2;
+  width: 100%;
+  height: 20px;
+  color: grey;
+  text-shadow: 1px 1px #dbdbdb;
+  margin: 2px 0px;
+}
+
+.white-border {
+  border: 2px dashed grey;
+}
+
+.white-border-right {
+  border-right: 2px dashed grey;
+}
+
+.footerText {
+  font-size: 13px;
+}
+
+.content {
+  @extend %inner-edge;
+  @extend %no-padding;
+  font-size: 10px;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  font-family: 'pokemon-font', monospace;
+  color: whitesmoke;
+  background-color: #262626;
+}
+
+.no-padding {
+  @extend %no-padding;
 }
