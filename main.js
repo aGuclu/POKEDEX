@@ -1,5 +1,3 @@
-const POKEMON = [];
-
 var idNo = document.getElementById('IdNo');
 var img = document.getElementById('spriteDiv');
 var stats1 = document.getElementById('statsDiv1');
@@ -35,14 +33,30 @@ class Pokemon {
     this.spd = spd;
     this.types = types;
     this.abilities = abilities;
-    POKEMON.push(this);
   }
 }
 
-// class TrainerX {
-//   constructor(name) {
-//     this.name = name;
-// };
+class TrainerX {
+  constructor() {
+    this.pokemon = [];
+  }
+  all() {
+    let allPokemon = [];
+    for (let prop in this.pokemon) {
+      allPokemon.push(this.pokemon[prop]);
+    }
+    return allPokemon;
+  }
+  get(name) {
+    for (let prop in this.pokemon) {
+      if (this.pokemon[prop]['name'] == name) {
+        return this.pokemon[prop];
+      }
+    }
+  }
+}
+
+var trainer = new TrainerX();
 
 function getPokemon(value) {
   var xhttp = new XMLHttpRequest();
@@ -60,6 +74,8 @@ function getPokemon(value) {
                                 data['types'],
                                 data['abilities']
                                );
+
+      trainer.pokemon.push(pokemon);
       console.log(data);
       idNo.value = pokemon.id;
       clearScreen()
