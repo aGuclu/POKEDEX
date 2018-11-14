@@ -80,6 +80,7 @@ button.x, button.maximize, button.minimize, #windowDiv {
 
 body {
   background-color: darkgrey;
+  /* background-color: #00807F; */
 }
 
 input[type=number] {
