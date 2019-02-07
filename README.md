@@ -1,5 +1,7 @@
 # POKEDEX.EXE
 
+https://aguclu.github.io/POKEDEX/
+
 Project - Personal Pokedex
 
 Guidelines - To create a pokemon trainer showcase website that displays information focused around 3 pokemon chosen by the student using AJAX to retrieve said data.
